@@ -8,6 +8,7 @@ import { computeHealthScore } from '@/lib/healthScore'
 import { computeDebtPayoff, type LoanInput } from '@/lib/debtPayoffEngine'
 import { toPaise } from '@/lib/currency'
 import { monthsToYearsMonths } from '@/lib/utils'
+import ReactMarkdown from 'react-markdown'
 
 interface Message {
   role: 'user' | 'assistant'
@@ -207,13 +208,41 @@ export default function AdvisorPage() {
                   ? 'bg-[#f59e0b] text-black font-medium rounded-br-none'
                   : 'bg-[#141414] border border-[#262626] text-[#e5e5e5] rounded-bl-none'
               }`}>
-                {msg.content || (loading && i === messages.length - 1 ? (
-                  <span className="flex gap-1">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#737373] animate-bounce" style={{ animationDelay: '0ms' }} />
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#737373] animate-bounce" style={{ animationDelay: '150ms' }} />
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#737373] animate-bounce" style={{ animationDelay: '300ms' }} />
-                  </span>
-                ) : '')}
+                {msg.role === 'assistant' && msg.content ? (
+                  <ReactMarkdown
+                    components={{
+                      p: ({ children }) => <p className="mb-2 last:mb-0">{children}</p>,
+                      strong: ({ children }) => <strong className="font-bold text-[#f59e0b]">{children}</strong>,
+                      h3: ({ children }) => <h3 className="font-bold text-[#e5e5e5] text-base mt-3 mb-1">{children}</h3>,
+                      h2: ({ children }) => <h2 className="font-bold text-[#e5e5e5] text-base mt-3 mb-1">{children}</h2>,
+                      ul: ({ children }) => <ul className="list-disc list-inside space-y-1 my-2">{children}</ul>,
+                      ol: ({ children }) => <ol className="list-decimal list-inside space-y-1 my-2">{children}</ol>,
+                      li: ({ children }) => <li className="text-[#e5e5e5]">{children}</li>,
+                      table: ({ children }) => (
+                        <div className="overflow-x-auto my-3">
+                          <table className="w-full text-xs border-collapse">{children}</table>
+                        </div>
+                      ),
+                      thead: ({ children }) => <thead className="bg-[#262626]">{children}</thead>,
+                      th: ({ children }) => <th className="px-3 py-2 text-left font-semibold text-[#a3a3a3] border border-[#333]">{children}</th>,
+                      td: ({ children }) => <td className="px-3 py-2 text-[#e5e5e5] border border-[#262626]">{children}</td>,
+                      tr: ({ children }) => <tr className="even:bg-[#1a1a1a]">{children}</tr>,
+                      code: ({ children }) => <code className="bg-[#262626] px-1.5 py-0.5 rounded text-[#f59e0b] text-xs font-mono">{children}</code>,
+                      blockquote: ({ children }) => <blockquote className="border-l-2 border-[#f59e0b] pl-3 my-2 text-[#a3a3a3]">{children}</blockquote>,
+                      hr: () => <hr className="border-[#262626] my-3" />,
+                    }}
+                  >
+                    {msg.content}
+                  </ReactMarkdown>
+                ) : msg.role === 'user' ? msg.content : (
+                  loading && i === messages.length - 1 ? (
+                    <span className="flex gap-1">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#737373] animate-bounce" style={{ animationDelay: '0ms' }} />
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#737373] animate-bounce" style={{ animationDelay: '150ms' }} />
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#737373] animate-bounce" style={{ animationDelay: '300ms' }} />
+                    </span>
+                  ) : ''
+                )}
               </div>
             </div>
           ))}
