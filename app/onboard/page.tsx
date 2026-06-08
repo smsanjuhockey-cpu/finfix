@@ -100,7 +100,7 @@ export default function OnboardPage() {
                 <span className="absolute left-4 top-1/2 -translate-y-1/2 text-[#f59e0b] font-bold text-lg">₹</span>
                 <input
                   type="number"
-                  placeholder="1,90,000"
+                  placeholder="75,000"
                   value={salary}
                   onChange={e => setSalary(e.target.value)}
                   className="w-full bg-[#141414] border border-[#262626] rounded-xl pl-9 pr-4 py-3.5 text-[#e5e5e5] text-lg font-semibold focus:outline-none focus:border-[#f59e0b] transition-colors"
@@ -115,7 +115,7 @@ export default function OnboardPage() {
 
             <div className="bg-[#141414] border border-[#262626] rounded-xl p-4 mb-8">
               <p className="text-[#737373] text-xs leading-relaxed">
-                <span className="text-[#a3a3a3] font-medium">Why this?</span> Your salary is the denominator for every ratio we calculate. A ₹1,90,000 salary with ₹95,000 in EMIs means 50% of your income is already committed — that is the most important number to know.
+                <span className="text-[#a3a3a3] font-medium">Why this?</span> Your salary is the denominator for every ratio we calculate. A ₹75,000 salary with ₹30,000 in EMIs means 40% of your income is already committed — that is the most important number to know.
               </p>
             </div>
 
@@ -193,7 +193,7 @@ export default function OnboardPage() {
                       <input
                         type="number"
                         step="0.1"
-                        placeholder="9.99"
+                        placeholder="10.5"
                         value={loan.interestRate || ''}
                         onChange={e => updateLoan(loan.id, 'interestRate', parseFloat(e.target.value) || 0)}
                         className="w-full bg-[#0a0a0a] border border-[#262626] rounded-lg px-3 py-2 text-[#e5e5e5] text-sm focus:outline-none focus:border-[#f59e0b] transition-colors"
@@ -204,7 +204,7 @@ export default function OnboardPage() {
                       <label className="block text-xs text-[#737373] mb-1">Outstanding Amount (₹)</label>
                       <input
                         type="number"
-                        placeholder="43,79,000"
+                        placeholder="5,00,000"
                         value={loan.outstanding || ''}
                         onChange={e => updateLoan(loan.id, 'outstanding', parseFloat(e.target.value) || 0)}
                         className="w-full bg-[#0a0a0a] border border-[#262626] rounded-lg px-3 py-2 text-[#e5e5e5] text-sm focus:outline-none focus:border-[#f59e0b] transition-colors"
@@ -217,7 +217,7 @@ export default function OnboardPage() {
                       </label>
                       <input
                         type="number"
-                        placeholder={loan.loanType === 'interest_only' ? '26,250' : '95,590'}
+                        placeholder={loan.loanType === 'interest_only' ? '8,000' : '15,000'}
                         value={loan.emiAmount || ''}
                         onChange={e => updateLoan(loan.id, 'emiAmount', parseFloat(e.target.value) || 0)}
                         className="w-full bg-[#0a0a0a] border border-[#262626] rounded-lg px-3 py-2 text-[#e5e5e5] text-sm focus:outline-none focus:border-[#f59e0b] transition-colors"
@@ -285,7 +285,7 @@ export default function OnboardPage() {
                   <span className="absolute left-4 top-1/2 -translate-y-1/2 text-[#f59e0b] font-bold">₹</span>
                   <input
                     type="number"
-                    placeholder="35,935"
+                    placeholder="20,000"
                     value={fixedExpenses}
                     onChange={e => setFixedExpenses(e.target.value)}
                     className="w-full bg-[#141414] border border-[#262626] rounded-xl pl-9 pr-4 py-3 text-[#e5e5e5] font-semibold focus:outline-none focus:border-[#f59e0b] transition-colors"

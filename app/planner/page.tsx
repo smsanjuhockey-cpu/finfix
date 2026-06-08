@@ -213,7 +213,7 @@ export default function PlannerPage() {
                     <span className="absolute left-3 top-1/2 -translate-y-1/2 text-[#f59e0b] text-sm font-bold">₹</span>
                     <input
                       type="number"
-                      placeholder="72,94,000"
+                      placeholder="8,00,000"
                       value={goldValue}
                       onChange={e => setGoldValue(e.target.value)}
                       className="w-full bg-[#0a0a0a] border border-[#262626] rounded-lg pl-7 pr-3 py-2 text-[#e5e5e5] text-sm focus:outline-none focus:border-[#f59e0b]"
