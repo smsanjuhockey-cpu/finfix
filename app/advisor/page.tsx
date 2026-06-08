@@ -16,12 +16,12 @@ interface Message {
 }
 
 const QUICK_PROMPTS = [
-  'What should I do first to fix my finances?',
-  'How do I close my gold loan faster?',
-  'What happens to my loans if I move to Dubai?',
-  'Should I prepay my loan or invest in SIP?',
-  'How do I build an emergency fund with my current salary?',
-  'Give me a 12-month debt freedom plan',
+  'What should I do first to improve my finances?',
+  'How do I become debt free faster?',
+  'Should I prepay my loan or start a SIP?',
+  'How do I build an emergency fund?',
+  'Give me a step-by-step monthly budget plan',
+  'How do I reduce my EMI burden?',
 ]
 
 function buildFinancialContext(): string {
